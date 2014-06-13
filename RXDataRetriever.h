@@ -24,6 +24,9 @@
 //                                                                                 //
 /////////////////////////////////////////////////////////////////////////////////////
 
+#import <Foundation/Foundation.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
 /*
     Reactive JSON RESTful client.
     Based on ReactiveCocoa and AFNetworking 2.x.
