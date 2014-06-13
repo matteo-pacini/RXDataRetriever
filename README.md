@@ -12,7 +12,7 @@ Add this into your Podfile:
 
 Import the class in your prefix:
 
-    #import "RXDataRetriever.h"
+    #import <RXDataRetriever/RXDataRetriever.h>
 
 #Methods
 

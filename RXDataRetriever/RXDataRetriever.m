@@ -27,6 +27,7 @@
 #import "RXDataRetriever.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <libextobjc/extobjc.h>
 
 @interface RXDataRetriever()
 

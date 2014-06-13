@@ -1,7 +1,6 @@
 Pod::Spec.new do |s|
 
   s.platform     = :ios, '7.0'
-  s.ios.deployment_target = '7.0'
 
   s.name         = "RXDataRetriever"
   s.version      = "0.1.0"
@@ -24,5 +23,6 @@ Pod::Spec.new do |s|
   
   s.dependency "AFNetworking", "~> 2.3.0"
   s.dependency "ReactiveCocoa", "~> 2.3.1"
+  s.dependency "libextobjc", "~> 0.4" 
 
 end
