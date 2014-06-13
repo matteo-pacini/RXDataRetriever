@@ -20,5 +20,6 @@ Pod::Spec.new do |s|
   s.framework = 'Foundation'
   s.dependency "AFNetworking", "~> 2.3.0"
   s.dependency "ReactiveCocoa", "~> 2.3.1"
+  s.compiler_flags = '-fmodules'
 
 end
