@@ -22,9 +22,9 @@ Import the class in your prefix:
 - PATCH
 - DELETE
 
-*GET* supports query arguments. If you don't need those, just pass *nil*.
+**GET** supports query arguments. If you don't need those, just pass *nil*.
 
-    [[RXDataRetriever instance] GET:@"/doge" query:@{"such":"networking","much","reactive"}]
+    [[RXDataRetriever instance] GET:@"/doge" query:@{"such":"networking","much":"reactive"}]
 
 ...produces this URL:
 
@@ -32,11 +32,48 @@ Import the class in your prefix:
 
 Query values will be URL-encoded if needed.
 
-#Example
+##Signatures
+
+    -(RACSignal*)GET:(NSString*)path
+           query:(NSDictionary*)arguments;
+    
+    -(RACSignal*)POST:(NSString*)path
+             data:(id)data;
+    
+    -(RACSignal*)PUT:(NSString*)path
+            data:(id)data;
+    
+    -(RACSignal*)PATCH:(NSString*)path
+               ops:(NSArray*)patches;
+    
+    -(RACSignal*)DELETE:(NSString*)path;
+    
+    -(RACSignal*)reachability;
+    
+    -(RACSignal*)invalidateSessionCancelingTasks:(BOOL)cancelPendingTasks;
+
+#Examples
 
 ##Retrieve a GitHub user
 
 Configure the client first.
+
+**errorResponseDomain** will be used to create NSError objects (if an error occurs).
+
+**errorResponseKeyPath** tells the object where it should look to get an error message.
+
+e.g. If your server replies with this JSON after a 500:
+ 
+    {
+        "error": {
+            "code"    : 500,
+            "message" : "blablabla"
+        }
+    }
+ 
+ ...you should set **errorResponseKeyPath** to @"error.message"!
+ 
+ GitHub API uses @"message" keypath.
 
     [RXDataRetriever instance].baseURL = @"https://api.github.com"
     [RXDataRetriever instance].errorResponseDomain = @"api.github.com"
@@ -55,12 +92,16 @@ Retrieving the user name
         
         }];
 
+Mapping is useful (you could map the json response using Core Data or Mantle!)
+
 #Swift
 
-Swift won't be supported until ReactiveCocoa and AFNetworking will be 100% working on it.
+Swift won't be supported until both ReactiveCocoa and AFNetworking will be 100% working on it.
 
+#To Do / Contribute
 
-#Contribute
+- Support headers (which includes authentication)
+
 
 Fork the repo and send a pull request!
 
