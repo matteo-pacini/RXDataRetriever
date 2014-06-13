@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/Zi0P4tch0"
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/Zi0P4tch0/RXDataRetriever.git", :tag => "0.1.0" }
-  s.source_files  = "RXDataRetriever.{h,m}"
+  s.source_files  = "RXDataRetriever/RXDataRetriever.{h,m}"
   s.requires_arc = true
   s.framework = 'Foundation'
   s.dependency "AFNetworking", "~> 2.3.0"
